@@ -1,0 +1,13 @@
+.nav {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.active {
+    font-weight: bold;
+    color: red;
+}
