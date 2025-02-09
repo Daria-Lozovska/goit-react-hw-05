@@ -15,7 +15,7 @@ const MoviesPage = () => {
     }
 
     return (
-        <div>
+        <div className={styles.div}>
             <h1>Search Movies</h1> 
             <form onSubmit={handleSubmit} className={styles.form}>
                 <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} className={styles.input} />
