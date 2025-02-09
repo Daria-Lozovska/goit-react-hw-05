@@ -1,19 +1,21 @@
-import { useEffect, useState } from "react";
-import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
+import { useParams, Link, useLocation, Outlet } from 'react-router-dom';
 import { fetchMoviesDetails } from '../../services/tmdb-api';
-import styles from "./MovieDetailsPage.module.css"
+import styles from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
-    const { movieId } = useParams();
-    const [movie, setMovie] = useState(null);
-    const location = useLocation();
-    const backLink = location.state?.from || '/movies';
+  const { movieId } = useParams();
+  const [movie, setMovie] = useState(null);
+  const location = useLocation();
+  const backLink = useRef(location.state?.from || '/');
 
-    useEffect(() => {
-        fetchMoviesDetails(movieId).then(setMovie).catch(console.error);
-    }, [movieId]);
+  useEffect(() => {
+    fetchMoviesDetails(movieId)
+      .then(setMovie)
+      .catch(console.error);
+  }, [movieId]);
 
-    if (!movie) return <p>Loading...</p>;
+  if (!movie) return <p>Loading...</p>;
 
     return (
         <div className={styles.div}>
