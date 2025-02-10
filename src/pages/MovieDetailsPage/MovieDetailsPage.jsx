@@ -19,7 +19,7 @@ const MovieDetailsPage = () => {
 
     return (
         <div className={styles.div}>
-            <Link to={backLink} className={styles.backlink}>Go back</Link>
+            <Link to={backLink.current} className={styles.backlink}>Go back</Link>
             <h1 className={styles.title}>{movie.title}</h1>
             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className={styles.img} />
             <p className={styles.p}>{movie.overview}</p>
